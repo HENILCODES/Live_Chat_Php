@@ -10,7 +10,7 @@ include("dbcon.php");
 <head>
     <title>Henil</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <!-- <link rel="icon" href="https://secure.gravatar.com/avatar/19cef1c37b12cb5d47ce71e9894dd14f?s=160&d=identicon&r=g"> -->
+    <link rel="icon" href="Image/logo.png">
     <link rel="stylesheet" href="CSS/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="JS/jqcha.js"></script>

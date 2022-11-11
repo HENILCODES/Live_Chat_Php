@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
     <title> Log in | Henil Code</title>
     <link rel="stylesheet" href="CSS/login.css">
-    <link rel="icon" href="Image/Henil.ico">
+    <link rel="icon" href="Image/logo.png">
 </head>
 
 <body>
     <div class="main">
         <div class="box">
             <div class="header">
-                <img src="Image/Henil.ico" alt="not load">
+                <img src="Image/logo.png" alt="not load">
                 <div class="h-data">
                     <a href="" class="logo_name">Henil Codes</a>
                     <h5>Welcome back!</h5>
