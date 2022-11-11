@@ -53,5 +53,5 @@
         </div>
 </body>
 
-<script src="JS/valid.js"></script>
+<script src="JS/login.js"></script>
 </html>

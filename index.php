@@ -11,39 +11,41 @@ include("dbcon.php");
     <title>Henil</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="icon" href="Image/logo.png">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="JS/jqcha.js"></script>
+    <script src="JS/main.js"></script>
 </head>
 
-<body onload="focusIn()">
+<body onload="focIn()">
     <div class="header">
         <div class="main">
             <div class="top">
                 <div class="top1">
                     <span> <a href="https://henil.rf.gd/Live_Chat/" class="logo">Live Chat </a></span>
-                    <h3 class="live_User"> Welcome <span class="live_U"> <?php if (isset($_SESSION['User_N'])) {
-                                                                                $live_U = $_SESSION['User_N'];
-                                                                                echo $live_U;
-                                                                            } else {
-                                                                                echo "Guest";
-                                                                            }  ?></span> </h3>
+                    <h3 class="live_User"> Welcome <span class="live_U">
+                            <?php if (isset($_SESSION['User_N'])) {
+                                $live_U = $_SESSION['User_N'];
+                                echo $live_U;
+                            } else {
+                                echo "Guest";
+                            }  ?></span>
+                    </h3>
                 </div>
                 <div class="top2">
                     <a href="whatsapp://send?text=Join With Me for Live Chatting https://henil.rf.gd/Live_Chat/ Come Fast." class="invite_a bi bi-whatsapp" title="Send To What's app"></a>
                     <a class="bi bi-arrow-clockwise" href="index.php" id="ref"></a>
                     <?php if (isset($_SESSION['User_N'])) {
-                        ?>
+                    ?>
                         <form action="logout_Code.php" method="post" class="log_Form">
                             <button name="Log_Out" type="submit" class='login_log'>Log out</button>
                         </form>
-                        <?php
-                        } else {
-                        ?>
-                            <a href="Form_login.php" name="Log_Out" type="submit" class='login_log'>Log in</a>
-                        <?php
-                        }
-                        ?>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="Form_login.php" name="Log_Out" type="submit" class='login_log'>Log in</a>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
             <div class="chats" id="chat_s">
@@ -52,15 +54,21 @@ include("dbcon.php");
                 $time_C = date('d-M-Y g:i a');
 
                 if (isset($_POST['Done'])) {
-                    $file = $_FILES["file"]["name"];
-                    $FiD_Name = time() . $_FILES["file"]["name"];
-                    $cha = str_ireplace("<", "&lt;", $_POST['chat_u']);
-                    $chat = base64_encode($cha);
-                    
-                    $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$FiD_Name','$file','$time_C')";
-                    mysqli_query($conn, $in);
-                    if (move_uploaded_file($_FILES["file"]["tmp_name"], "U_Files/" . $FiD_Name)) {
-                        header("Location: index.php");
+                    if (isset($_FILES["file"]["name"])) {
+                        $file = $_FILES["file"]["name"];
+                        $FiD_Name = time() . $_FILES["file"]["name"];
+                        $Fin = "insert into message (User_Name,file,File_Name,Time_Stamps) values ('$live_U','$FiD_Name','$file','$time_C')";
+                        mysqli_query($conn, $Fin);
+                        if (move_uploaded_file($_FILES["file"]["tmp_name"], "U_Files/" . $FiD_Name)) {
+                            header("Location: index.php");
+                        }
+                    } else {
+                        $cha = str_ireplace("<", "&lt;", $_POST['chat_u']);
+                        $chat = base64_encode($cha);
+                        $in = "insert into message (User_Name,Message,Time_Stamps) values ('$live_U','$chat','$time_C')";
+                        if (mysqli_query($conn, $in)) {
+                            header("Location: index.php");
+                        }
                     }
                 }
                 $select = "SELECT * FROM message";
@@ -94,7 +102,7 @@ include("dbcon.php");
                         <form method="POST" enctype="multipart/form-data" class="form">
                             <span class="bi bi-link-45deg" id="option"></span>
                             <div id="in">
-                                <input type="text" required class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
+                                <!-- <input type="text" required class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message"> -->
                             </div>
                             <button class="send bi bi-send" name="Done"> </button>
                         </form>
@@ -120,8 +128,9 @@ include("dbcon.php");
 
 </html>
 <script>
-    function focusIn() {
+    function focIn() {
         window.location = "index.php#HP";
         document.getElementById("ChatsBox").focus();
     }
 </script>
+<!-- live free chat online -->

@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .header {
+    zoom: 1.7;
+    margin-top: 60px;
+    transition: 0.5s;
+  }
+  .userchat {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .invite_a {
+    display: none;
+  }
+  .header {
+    margin-top: 40px;
+  }
+  .userchat {
+    font-size: 1.2rem;
+  }
+}
+
+body {
+  cursor: default;
+  background-color: rgb(248, 239, 239);
+}
+
+.login {
+  border-radius: 40px;
+  font-size: 27px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: bold;
+  padding: 13px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0 0 15px 0 rgb(119, 4, 181);
+  border: none;
+  background-color: gold;
+  text-shadow: 0 0 10px white;
+  transition: 0.5s;
+}
+.login:hover {
+  background-color: brown;
+  color: gold;
+  box-shadow: 0 0 10px 0 white;
+  border: 1px solid gold;
+}
+.SignUp {
+  text-align: center;
+  color: gold;
+  background-color: brown;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px black;
+}
+.chats {
+  height: 450px;
+}
+
+.main {
+  background-color: antiquewhite;
+  width: 500px;
+  margin: auto;
+  box-shadow: 0 0 20px 0 black;
+  border-radius: 9px;
+}
+.live_User {
+  color: #ffd700;
+  font-size: 18px;
+  margin-left: -5px;
+}
+.live_U {
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 19;
+}
+.top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  background-color: brown;
+  user-select: none;
+  color: rgb(204, 250, 210);
+  padding: 5px 13px 6px 1px;
+  justify-content: space-between;
+  display: flex;
+}
+
+#ref {
+  font-size: 40px;
+  margin-right: 30px;
+  text-shadow: 0 0 5px gold;
+}
+.login_log {
+  text-shadow: 0 0 5px gold;
+  text-decoration: none;
+  font-size: 30px;
+  background-color: brown;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  color: white;
+}
+.log_Form {
+  background-color: brown;
+}
+.login_log:hover {
+  color: gold;
+}
+a {
+  color: white;
+  border-radius: 30px;
+}
+
+.logo {
+  text-shadow: 0 0 5px gold;
+  text-decoration: none;
+  font-size: 33px;
+}
+
+.top1 {
+  margin-top: 2px;
+  margin-left: 20px;
+}
+.top2 {
+  padding-top: 12px;
+  display: flex;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+}
+
+.bottom .file_in {
+  outline: none;
+  background-color: rgb(239, 232, 204);
+  padding: 15px 0 15px 15px;
+  font-size: 20px;
+  border: 1px solid rgb(148, 146, 146);
+  cursor: pointer;
+  width: 380px;
+  transition: 0.5s;
+}
+
+.bottom .input {
+  outline: none;
+  resize: none;
+  scroll-behavior: smooth;
+  height: 26px;
+  background-color: rgb(239, 232, 204);
+  padding: 15px 0 15px 15px;
+  font-size: 20px;
+  border: 1px solid rgb(148, 146, 146);
+  width: 380px;
+  transition: 0.5s;
+}
+
+.Dev_logo {
+  display: flex;
+  transition: 0.5s;
+  justify-content: space-evenly;
+}
+
+.invite_a {
+  font-size: 35px;
+  text-decoration: none;
+  margin-right: 33px;
+  text-shadow: 0 0 5px gold;
+}
+
+#chat_B:hover,
+#pdf_B:hover {
+  color: gold;
+}
+
+#chat_B,
+#pdf_B {
+  margin-bottom: 15px;
+  font-size: 30px;
+  display: none;
+  cursor: pointer;
+  outline: none;
+  background: brown;
+  color: white;
+  border-radius: 65%;
+  width: 50px;
+  padding-bottom: 10px;
+  border: 1px solid rgb(148, 146, 146);
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 0 5px black;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.hiper {
+  color: #8df1e0;
+  margin-left: 13px;
+  font-size: 21px;
+  overflow-wrap: anywhere;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  text-shadow: 0 0 4px white;
+}
+
+.hiper:hover {
+  color: gold;
+}
+
+.optionB {
+  display: flex;
+  position: fixed;
+  width: 100px;
+  margin-top: -150px;
+  margin-left: 4px;
+  flex-direction: column-reverse;
+}
+
+#option {
+  font-size: 32px;
+  cursor: pointer;
+  outline: none;
+  background: brown;
+  color: white;
+  width: 70px;
+  border: 1px solid rgb(148, 146, 146);
+  border-bottom-left-radius: 10px;
+  box-shadow: 0 0 5px black;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.bottom .input:focus {
+  border: 2px solid brown;
+  border-right: none;
+  border-top: 1px solid brown;
+  box-shadow: 0 0 5px black;
+}
+
+.bottom .send {
+  border: 1px solid rgb(148, 146, 146);
+  width: 70px;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-size: 25px;
+  background-color: brown;
+  color: white;
+  box-shadow: 0 0 5px black;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+}
+
+.bottom .send:hover,
+.top2 a:hover,
+#option:hover {
+  color: gold;
+}
+
+.chats {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 500px;
+  padding-top: 35px;
+  padding-left: 85px;
+  display: block;
+}
+
+.message {
+  border-radius: 15px;
+  border-bottom-right-radius: 25px;
+  width: 330px;
+  display: inline-block;
+  margin-bottom: 20px;
+  background-color: brown;
+  box-shadow: 0 0 8px 0 black;
+}
+
+.message .user {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 15px;
+  text-shadow: 0 0 10px beige;
+  padding: 6px 1px 5px 15px;
+}
+
+.chats .user {
+  background-color: #bd5a5a;
+  font-size: 0.8rem;
+  color: rgb(60, 2, 98);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
+
+.message .time {
+  text-shadow: 0 0 10px wheat;
+  padding: 5px 15px 8px 1px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 20px;
+  text-align: right;
+  color: aquamarine;
+  background-color: #a64040;
+  font-size: 0.9rem;
+}
+
+.message .userchat {
+  color: white;
+  background-color: brown;
+  word-wrap: break-word;
+  padding: 13px 5px 18px 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+::-webkit-file-upload-button {
+  background-color: #bd5a5a;
+  display: none;
+}
+::-webkit-input-placeholder {
+  font-family: monospace;
+  margin-left: 12px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 20px;
+  box-shadow: inset 0 0 30px #d19494;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: brown;
+  border-radius: 20px;
+}

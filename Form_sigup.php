@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title> Sign Up | Web Chat</title>
+    <title> Sign Up | Henil Code</title>
     <link rel="stylesheet" href="CSS/login.css">
     <link rel="icon" href="Image/logo.png">
 </head>
@@ -55,6 +55,6 @@
             <span>© 2022 <a href="https://henilcodes.github.io/PH/"> Henil Code</a> </span>
         </div>
 </body>
-<script src="JS/valid.js"></script>
+<script src="JS/login.js"></script>
 
 </html>
