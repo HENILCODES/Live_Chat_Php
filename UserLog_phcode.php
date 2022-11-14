@@ -12,7 +12,7 @@ if (!$conn) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/error.css">
-    <link rel="icon" href="Image/logo.png">
+    <link rel="icon" href="Image/lgog.png">
 </head>
 
 <?php

@@ -14,7 +14,7 @@
             <div class="header">
                 <img src="Image/logo.png" alt="not load">
                 <div class="h-data">
-                    <a href="" class="logo_name">Henil Codes</a>
+                    <a href="https://henil.rf.gd/Web_Chat/" class="logo_name">Henil Codes</a>
                     <h5>Create Account</h5>
                 </div>
             </div>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-// include('sec_Code.php');
 include("dbcon.php");
 ?>
 
@@ -8,7 +7,7 @@ include("dbcon.php");
 <html lang="en">
 
 <head>
-    <title>Henil</title>
+    <title>Web Chat</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="icon" href="Image/logo.png">
     <link rel="stylesheet" href="CSS/styles.css">
@@ -16,23 +15,21 @@ include("dbcon.php");
     <script src="JS/main.js"></script>
 </head>
 
-<body onload="focIn()">
+<body onload="focusIn()">
     <div class="header">
         <div class="main">
             <div class="top">
                 <div class="top1">
-                    <span> <a href="https://henil.rf.gd/Live_Chat/" class="logo">Live Chat </a></span>
-                    <h3 class="live_User"> Welcome <span class="live_U">
-                            <?php if (isset($_SESSION['User_N'])) {
-                                $live_U = $_SESSION['User_N'];
-                                echo $live_U;
-                            } else {
-                                echo "Guest";
-                            }  ?></span>
-                    </h3>
+                    <span> <a href="https://henil.rf.gd/Live_Chat/" class="logo">Web Chat </a></span>
+                    <h3 class="live_User"> Welcome <span class="live_U"> <?php if (isset($_SESSION['User_N'])) {
+                                                                                $live_U = $_SESSION['User_N'];
+                                                                                echo $live_U;
+                                                                            } else {
+                                                                                echo "Guest";
+                                                                            }  ?></span> </h3>
                 </div>
                 <div class="top2">
-                    <a href="whatsapp://send?text=Join With Me for Live Chatting https://henil.rf.gd/Live_Chat/ Come Fast." class="invite_a bi bi-whatsapp" title="Send To What's app"></a>
+                    <a href="whatsapp://send?text=Join With Me for Live Chatting https://henil.rf.gd/Web_Chat/ Come Fast." class="invite_a bi bi-whatsapp" title="Send To What's app"></a>
                     <a class="bi bi-arrow-clockwise" href="index.php" id="ref"></a>
                     <?php if (isset($_SESSION['User_N'])) {
                     ?>
@@ -49,27 +46,23 @@ include("dbcon.php");
                 </div>
             </div>
             <div class="chats" id="chat_s">
+
                 <?php
+
                 date_default_timezone_set("Asia/Calcutta");
                 $time_C = date('d-M-Y g:i a');
 
                 if (isset($_POST['Done'])) {
-                    if (isset($_FILES["file"]["name"])) {
-                        $file = $_FILES["file"]["name"];
-                        $FiD_Name = time() . $_FILES["file"]["name"];
-                        $Fin = "insert into message (User_Name,file,File_Name,Time_Stamps) values ('$live_U','$FiD_Name','$file','$time_C')";
-                        mysqli_query($conn, $Fin);
-                        if (move_uploaded_file($_FILES["file"]["tmp_name"], "U_Files/" . $FiD_Name)) {
-                            header("Location: index.php");
-                        }
-                    } else {
-                        $cha = str_ireplace("<", "&lt;", $_POST['chat_u']);
-                        $chat = base64_encode($cha);
-                        $in = "insert into message (User_Name,Message,Time_Stamps) values ('$live_U','$chat','$time_C')";
-                        if (mysqli_query($conn, $in)) {
-                            header("Location: index.php");
-                        }
-                    }
+
+                    $file = $_FILES["u_file"]["name"];
+                    $cha = str_ireplace("<", "&lt;", $_POST['chat_u']);
+                    $chat = base64_encode($cha);
+                    $u_file_name = time() . "-" . $file;
+
+                    move_uploaded_file($_FILES['u_file']['tmp_name'], 'U_Files/' . $u_file_name);
+
+                    $in = "insert into message (User_Name,Message,file,File_Name,Time_Stamps) values ('$live_U','$chat','$u_file_name','$file','$time_C')";
+                    mysqli_query($conn, $in);
                 }
                 $select = "SELECT * FROM message";
                 $result = mysqli_query($conn, $select);
@@ -101,9 +94,8 @@ include("dbcon.php");
                     <div id="chat_in">
                         <form method="POST" enctype="multipart/form-data" class="form">
                             <span class="bi bi-link-45deg" id="option"></span>
-                            <div id="in">
-                                <!-- <input type="text" required class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message"> -->
-                            </div>
+                            <input type="text" class="input" id="ChatsBox" name="chat_u" autocomplete="off" placeholder="Type Message" title="Type Message">
+                            <input type='file' class='file_in none' id='file_input' name='u_file'>
                             <button class="send bi bi-send" name="Done"> </button>
                         </form>
                     </div>
@@ -128,9 +120,8 @@ include("dbcon.php");
 
 </html>
 <script>
-    function focIn() {
+    function focusIn() {
         window.location = "index.php#HP";
         document.getElementById("ChatsBox").focus();
     }
 </script>
-<!-- live free chat online -->
