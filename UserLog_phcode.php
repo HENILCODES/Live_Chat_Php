@@ -25,10 +25,10 @@ $User_Not_Found = false;
 <?php
 if (isset($_POST['U_Signup'])) {
     $select_User_Q = "SELECT * FROM user_table WHERE UNAME = '$_POST[U_name]'";
-    $select_user_Result = mysqli_query($Db_con, $select_User_Q);
+    $select_user_Result = mysqli_query($conn, $select_User_Q);
 
     $select_Email_Q = "SELECT * FROM user_table WHERE UEMAIL = '$_POST[U_email]'";
-    $select_email_Result = mysqli_query($Db_con, $select_Email_Q);
+    $select_email_Result = mysqli_query($conn, $select_Email_Q);
 
     if (mysqli_num_rows($select_user_Result) > 0) {
         $User_Name_Used = true;
